@@ -35,7 +35,7 @@ mongoose.connection
 ////////////////////////////////
 const CheeseSchema = new mongoose.Schema({
   name: String,
-  countryOfOrigin:String,
+  countryOfOrigin: String,
   image: String,
   
 });
