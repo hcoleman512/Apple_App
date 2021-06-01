@@ -24,6 +24,7 @@ mongoose.connect(MONGODB_URL, {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 });
+
 // Connection Events
 mongoose.connection
   .on("open", () => console.log("Your are connected to mongoose"))
@@ -33,14 +34,16 @@ mongoose.connection
 ///////////////////////////////
 // MODELS
 ////////////////////////////////
-const CheeseSchema = new mongoose.Schema({
+const AppleSchema = new mongoose.Schema({
   name: String,
   countryOfOrigin: String,
+  uses: String,
+  flavor: String,
   image: String,
   
 });
 
-const Cheese = mongoose.model("Cheese", CheeseSchema);
+const Apple = mongoose.model("Apple", AppleSchema);
 
 ///////////////////////////////
 // MiddleWare
@@ -58,10 +61,10 @@ app.get("/", (req, res) => {
 });
 
 // PEOPLE INDEX ROUTE
-app.get("/cheese", async (req, res) => {
+app.get("/apple", async (req, res) => {
   try {
     // send all people
-    res.json(await Cheese.find({}));
+    res.json(await Apple.find({}));
   } catch (error) {
     //send error
     res.status(400).json(error);
@@ -69,10 +72,10 @@ app.get("/cheese", async (req, res) => {
 });
 
 // PEOPLE CREATE ROUTE
-app.post("/cheese", async (req, res) => {
+app.post("/apple", async (req, res) => {
   try {
     // send all people
-    res.json(await Cheese.create(req.body));
+    res.json(await Apple.create(req.body));
   } catch (error) {
     //send error
     res.status(400).json(error);
@@ -80,11 +83,11 @@ app.post("/cheese", async (req, res) => {
 });
 
 // PEOPLE UPDATE ROUTE
-app.put("/cheese/:id", async (req, res) => {
+app.put("/apple/:id", async (req, res) => {
     try {
       // send all people
       res.json(
-        await Cheese.findByIdAndUpdate(req.params.id, req.body, { new: true })
+        await Apple.findByIdAndUpdate(req.params.id, req.body, { new: true })
       );
     } catch (error) {
       //send error
@@ -93,10 +96,10 @@ app.put("/cheese/:id", async (req, res) => {
   });
   
   // PEOPLE DELETE ROUTE
-  app.delete("/cheese/:id", async (req, res) => {
+  app.delete("/apple/:id", async (req, res) => {
     try {
       // send all people
-      res.json(await Cheese.findByIdAndRemove(req.params.id));
+      res.json(await Apple.findByIdAndRemove(req.params.id));
     } catch (error) {
       //send error
       res.status(400).json(error);

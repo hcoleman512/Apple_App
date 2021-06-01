@@ -1,7 +1,6 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -14,10 +13,19 @@
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
-    "mongoose": "^5.12.8",
+    "mongoose": "^5.12.12",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hcoleman512/cheese_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hcoleman512/cheese_app/issues"
+  },
+  "homepage": "https://github.com/hcoleman512/cheese_app#readme",
+  "description": ""
 }
